@@ -5,8 +5,24 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #dbeafe; /* 落ち着いた青系の背景 */
 }
+
+/* アプリ名とキャッチコピー */
+.header-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.app-name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+.catchphrase {
+    font-size: 18px;
+    color: #2563eb;
+}
+
 .calendar {
     width: 700px;
     background: white;
@@ -21,6 +37,8 @@ body {
     align-items: center;
     margin-bottom: 20px;
     font-size: 24px;
+    font-weight: bold;
+    color: #1e3a8a; /* 深い青で視認性アップ */
 }
 .days {
     display: grid;
@@ -31,13 +49,17 @@ body {
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    background: #e0e0e0;
+    background: #e0f2fe; /* 穏やかな青 */
     border-radius: 8px;
     position: relative;
     font-size: 20px;
+    transition: background 0.3s;
+}
+.date:hover {
+    background: #93c5fd; /* ホバー時に少し明るく */
 }
 .date.today {
-    background: #ffab91;
+    background: #2563eb; /* 今日の日付を強調 */
     color: white;
 }
 .study-time {
@@ -49,6 +71,7 @@ body {
     margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
+    color: #1e3a8a;
 }
 .date.study1 { background: #b3e5fc; }
 .date.study2 { background: #ffccbc; }
