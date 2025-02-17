@@ -1,12 +1,40 @@
-
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #dbeafe; /* 落ち着いた青系の背景 */
 }
+
+.exam-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.exam-container input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.exam-container button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.countdown {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d32f2f;
+    margin-bottom: 20px;
+}
+
 .calendar {
     width: 700px;
     background: white;
@@ -21,6 +49,8 @@ body {
     align-items: center;
     margin-bottom: 20px;
     font-size: 24px;
+    font-weight: bold;
+    color: #1e3a8a; /* 深い青で視認性アップ */
 }
 .days {
     display: grid;
@@ -31,13 +61,17 @@ body {
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    background: #e0e0e0;
+    background: #e0f2fe;
     border-radius: 8px;
     position: relative;
     font-size: 20px;
+    transition: background 0.3s;
+}
+.date:hover {
+    background: #93c5fd;
 }
 .date.today {
-    background: #ffab91;
+    background: #2563eb;
     color: white;
 }
 .study-time {
@@ -45,6 +79,19 @@ body {
     margin-top: 5px;
     color: #333;
 }
+.points {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+.date.exam-day {
+    background: #ff4c4c !important; /* 試験日を赤に設定 */
+    color: white;
+}
+
+
 .date.study1 { background: #b3e5fc; }
 .date.study2 { background: #ffccbc; }
 .date.study3 { background: #fff9c4; }
@@ -57,3 +104,10 @@ body {
 .date.study10 { background: #f48fb1; }
 .date.study11 { background: #bcaaa4; }
 .date.study12 { background: #e0e0e0; }
+
+.study-progress {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #d32f2f;
+}
