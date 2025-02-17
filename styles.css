@@ -1,0 +1,60 @@
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .calendar {
+            width: 700px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+        .day, .date {
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            background: #e0e0e0;
+            border-radius: 8px;
+            position: relative;
+            font-size: 20px;
+        }
+        .date.today {
+            background: #ffab91;
+            color: white;
+        }
+        .study-time {
+            font-size: 16px;
+            margin-top: 5px;
+            color: #333;
+        }
+        .date.study1 { background: #b3e5fc; }
+        .date.study2 { background: #ffccbc; }
+        .date.study3 { background: #fff9c4; }
+        .date.study4 { background: #ffecb3; }
+        .date.study5 { background: #c8e6c9; }
+        .date.study6 { background: #a5d6a7; }
+        .date.study7 { background: #b2ebf2; }
+        .date.study8 { background: #90caf9; }
+        .date.study9 { background: #ce93d8; }
+        .date.study10 { background: #f48fb1; }
+        .date.study11 { background: #bcaaa4; }
+        .date.study12 { background: #e0e0e0; }
+    </style>
