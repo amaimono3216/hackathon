@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資格取得カレンダー</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 試験日設定エリア -->
+    <div class="exam-container">
+        <label for="exam-date">試験日を設定:</label>
+        <input type="date" id="exam-date">
+        <button onclick="setExamDate()">設定</button>
+    </div>
+
+    <!-- カウントダウン表示エリア -->
+    <div class="countdown">
+        試験まであと <span id="days-left">-</span> 日
+    </div>
+
+    <div class="calendar">
+        <div class="header">
+            <button onclick="prevMonth()">◀</button>
+            <h3 id="month-year"></h3>
+            <button onclick="nextMonth()">▶</button>
+        </div>
+        <div class="days" id="days"></div>
+    </div>
+    
+    <div class="points">獲得ポイント: <span id="points">0</span> pt</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
