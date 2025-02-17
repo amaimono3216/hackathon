@@ -8,19 +8,31 @@ body {
     background-color: #dbeafe; /* 落ち着いた青系の背景 */
 }
 
-/* アプリ名とキャッチコピー */
-.header-container {
+.exam-container {
+    margin: 20px 0;
     text-align: center;
-    margin-bottom: 20px;
 }
-.app-name {
-    font-size: 32px;
+
+.exam-container input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.exam-container button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.countdown {
+    font-size: 24px;
     font-weight: bold;
-    color: #1e3a8a;
-}
-.catchphrase {
-    font-size: 18px;
-    color: #2563eb;
+    color: #d32f2f;
+    margin-bottom: 20px;
 }
 
 .calendar {
@@ -49,17 +61,17 @@ body {
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    background: #e0f2fe; /* 穏やかな青 */
+    background: #e0f2fe;
     border-radius: 8px;
     position: relative;
     font-size: 20px;
     transition: background 0.3s;
 }
 .date:hover {
-    background: #93c5fd; /* ホバー時に少し明るく */
+    background: #93c5fd;
 }
 .date.today {
-    background: #2563eb; /* 今日の日付を強調 */
+    background: #2563eb;
     color: white;
 }
 .study-time {
@@ -73,6 +85,13 @@ body {
     font-weight: bold;
     color: #1e3a8a;
 }
+
+.date.exam-day {
+    background: #ff4c4c !important; /* 試験日を赤に設定 */
+    color: white;
+}
+
+
 .date.study1 { background: #b3e5fc; }
 .date.study2 { background: #ffccbc; }
 .date.study3 { background: #fff9c4; }
