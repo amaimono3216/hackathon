@@ -1,9 +1,12 @@
 const monthYear = document.getElementById("month-year");
 const daysContainer = document.getElementById("days");
+const pointsDisplay = document.getElementById("points");
+
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
-let studyRecords = {};
+let studyRecords = {}; // 各日付の勉強データ
+let totalPoints = 0; // 獲得ポイント
 
 function renderCalendar(year, month) {
     const firstDay = new Date(year, month, 1).getDay();
@@ -14,11 +17,13 @@ function renderCalendar(year, month) {
     for (let i = 1; i <= lastDate; i++) {
         let className = "date";
         let studyTimeText = "";
+        let key = `${year}-${month}-${i}`;
+        
         if (year === today.getFullYear() && month === today.getMonth() && i === today.getDate()) {
             className += " today";
         }
-        if (studyRecords[`${year}-${month}-${i}`]) {
-            let hours = studyRecords[`${year}-${month}-${i}`].hours;
+        if (studyRecords[key]) {
+            let hours = studyRecords[key].hours;
             className += ` study${Math.min(hours, 12)}`;
             studyTimeText = `<div class='study-time'>${hours}時間</div>`;
         }
@@ -46,10 +51,20 @@ function nextMonth() {
 
 function editDay(year, month, day) {
     let key = `${year}-${month}-${day}`;
+    let previousPoints = studyRecords[key]?.points || 0;
+    
     let hours = prompt("勉強時間を入力 (最大12時間)", studyRecords[key]?.hours || "");
-    if (hours) {
-        studyRecords[key] = { hours: Math.min(parseInt(hours), 12) };
+    if (hours !== null && hours !== "") {
+        let parsedHours = Math.min(parseInt(hours), 12);
+        let newPoints = parsedHours * 2;
+        
+        // ポイントの増減を反映
+        totalPoints = totalPoints - previousPoints + newPoints;
+
+        studyRecords[key] = { hours: parsedHours, points: newPoints };
+        pointsDisplay.textContent = totalPoints; // ポイント更新
     }
+
     renderCalendar(currentYear, currentMonth);
 }
 
