@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シンプルカレンダー</title>
+    <title>資格取得カレンダー</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- 試験日設定エリア -->
+    <div class="exam-container">
+        <label for="exam-date">試験日を設定:</label>
+        <input type="date" id="exam-date">
+        <button onclick="setExamDate()">設定</button>
+        <button onclick="setGoalStudyTime()">目標勉強時間を設定</button> <!-- 設定ボタンの右側に追加 -->
+    </div>
+
+    <!-- カウントダウン表示エリア -->
+    <div class="countdown">
+        試験まであと <span id="days-left">-</span> 日
+    </div>
+
+    <!-- カレンダー -->
     <div class="calendar">
         <div class="header">
             <button onclick="prevMonth()">◀</button>
@@ -15,6 +30,14 @@
         </div>
         <div class="days" id="days"></div>
     </div>
+
+    <!-- 勉強進捗表示 -->
+    <p id="study-progress"></p>
+
+    <!-- ポイント・レベル表示 -->
+    <div class="points">獲得ポイント: <span id="points">0</span> pt</div>
+    <div class="level">レベル: <span id="level">1</span></div>
+
     <script src="script.js"></script>
 </body>
 </html>
