@@ -68,9 +68,32 @@ function editDay(year, month, day) {
     renderCalendar(currentYear, currentMonth);
 }
 
+
+// 前の月を表示
+function prevMonth() {
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
+    renderCalendar(currentYear, currentMonth);
+}
+
+// 次の月を表示
+function nextMonth() {
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    renderCalendar(currentYear, currentMonth);
+}
+
+
+
 // レベルアップ判定
 function checkLevelUp() {
-    let newLevel = Math.floor(totalPoints / 20) + 1;
+    let newLevel = Math.floor(totalPoints / 100) + 1;
     if (newLevel > currentLevel) {
         alert(`レベルアップ！ 新しいレベル: ${newLevel}`);
         currentLevel = newLevel;
