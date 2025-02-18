@@ -70,7 +70,7 @@ function editDay(year, month, day) {
 
 // レベルアップ判定
 function checkLevelUp() {
-    let newLevel = Math.floor(totalPoints / 100) + 1;
+    let newLevel = Math.floor(totalPoints / 20) + 1;
     if (newLevel > currentLevel) {
         alert(`レベルアップ！ 新しいレベル: ${newLevel}`);
         currentLevel = newLevel;
