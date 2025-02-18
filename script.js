@@ -117,16 +117,32 @@ function setExamDate() {
 // カウントダウンを更新する関数
 function updateCountdown() {
     if (!examDate || isNaN(examDate)) {
-        daysLeftDisplay.textContent = "-";
+        daysLeftDisplay.textContent = "試験日まで - ";
         return;
     }
 
     const today = new Date();
-    const diffTime = examDate - today;
+    const examDayStart = new Date(examDate);
+    examDayStart.setHours(0, 0, 0, 0); // 時間をリセットして日付だけ比較
+
+    const diffTime = examDayStart - today;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    daysLeftDisplay.textContent = diffDays > 0 ? diffDays : "試験日が過ぎました";
+    if (diffDays === 0) {
+        daysLeftDisplay.textContent = "試験日当日です";
+    } else if (diffDays > 0) {
+        daysLeftDisplay.textContent = `試験まであと ${diffDays}日 `;
+    } else {
+        daysLeftDisplay.textContent = "試験日が過ぎました";
+    }
 }
+
+// ページ読み込み時の初期化
+window.onload = function() {
+    updateCountdown(); // 初期値を適用するために実行
+    renderCalendar(currentYear, currentMonth);
+    updateStudyProgress();
+};
 
 // 目標勉強時間を設定
 function setGoalStudyTime() {
